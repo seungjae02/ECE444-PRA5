@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flaskr</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <br /><br />
+      <h1>Fake News Checker</h1>
+      <br /><br />
+      {% if prediction %}
+        <h2>It's Fake News!</h2>
+      {% else %}
+        <h2>It's Not Fake News :)</h2>
+      {% endif %}
+      <br /><br />
+      <form
+        action="{{ url_for('check_text') }}"
+        method="post"
+        class="add-entry form-group"
+      >
+        <dl>
+          <dt>Input Fake News Here:</dt>
+          <dd>
+            <textarea
+              name="text"
+              rows="5"
+              cols="40"
+              class="form-control col-sm-4"
+            ></textarea>
+          </dd>
+          <br /><br />
+          <dd>
+            <input type="submit" class="btn btn-primary" value="Check" />
+          </dd>
+        </dl>
+      </form>
+      <br />
+    </div>
+  </body>
+</html>
